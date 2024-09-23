@@ -1,0 +1,69 @@
+{
+  "name": "luli-ds",
+  "version": "1.0.0",
+  "description": "Build ES modules from ES6 source code",
+  "main": "dist/luli-ds.esm.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "mod:compat": "webpack --mode production --env mod:compat",
+    "min:compat": "webpack --mode production --env min:compat",
+    "mod": "webpack --mode production --env mod",
+    "min": "webpack --mode production --env min",
+    "build": "npm run mod && npm run min && npm run mod:compat && npm run min:compat",
+    "dist": "npm run build && rm -rf ./dist && cp -r ./lib ./dist",
+    "dev": "webpack --mode development --progress --colors --watch --env mod:compat",
+    "test": "mocha --require babel-core/register --colors ./test/*.spec.js",
+    "test:watch": "mocha --require babel-core/register --colors -w ./test/*.spec.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aloisiosmelo/luli-ds.git"
+  },
+  "keywords": [
+    "es6",
+    "esm",
+    "mui"
+  ],
+  "author": "aloisiosmelo",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aloisiosmelo/luli-ds/issues"
+  },
+  "homepage": "https://github.com/aloisiosmelo/luli-ds",
+  "peerDependencies": {
+    "react": "^17.0.0 || ^18.0.0",
+    "react-dom": "^17.0.0 || ^18.0.0"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.11.1",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.15.0",
+    "@mui/styles": "^5.15.13",
+    "dayjs": "^1.11.10",
+    "inputmask": "^4.0.9",
+    "react": "^17.0.0 || ^18.0.0",
+    "react-dom": "^17.0.0 || ^18.0.0",
+    "tss-react": "^4.9.10",
+    "web-vitals": "^3.4.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.26.0",
+    "babel-eslint": "^8.0.3",
+    "babel-loader": "^7.1.2",
+    "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-preset-env": "^1.7.0",
+    "chai": "^4.1.2",
+    "eslint": "^6.2.2",
+    "eslint-loader": "^2.1.0",
+    "lodash": "^4.17.14",
+    "mocha": "^6.1.4",
+    "terser-webpack-plugin": "^2.2.2",
+    "webpack": "^4.41.2",
+    "webpack-bundle-analyzer": "^3.3.2",
+    "webpack-cli": "^3.1.0",
+    "webpack-var2esm-plugin": "^1.2.1",
+    "yargs": "^13.2.4"
+  }
+}
